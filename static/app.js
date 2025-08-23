@@ -69,7 +69,7 @@ function deselectAnswers() {
 
 // Function that gets question information from the database
 async function fetchQuestionsFromDatabase() {
-    const response = await fetch(`/getQuestions?group=${group}`);
+    const response = await fetch(`/truecolors/getQuestions?group=${group}`);
     const data = await response.json();
     return data;
 }
@@ -556,7 +556,7 @@ function sendResults() {
     }
     console.log("Results in sendResults: " + JSON.stringify(results));
 
-    fetch('/storeResult', {
+    fetch('/truecolors/storeResult', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -648,7 +648,7 @@ function displayResults() {
         user_result.style = `color: ${result_color}`;
     }
 
-    fetch('/save_location', {
+    fetch('/truecolors/save_location', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -677,7 +677,7 @@ function removeRadioSelectionsFromLS() {
 
 function fetch_data() {
     // Fetch data from Python Flask script
-    fetch('/fetch_data')
+    fetch('/truecolors/fetch_data')
     .then(response => response.json())
     .then(data => {
         // Define the labels and initialize the counts for the pie chart

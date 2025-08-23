@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" type="text/css" href="/truecolors/static/style.css">
     <title>True Colors Personality Test</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -17,8 +17,8 @@
     <p>You are about to take the True Colors Personality Test!</p>
     <p>To access the test, please select "Student Sign In" and use your <strong id="moravian_university">Moravian University</strong> email account.</p>
     <!-- "Sign In" button -->
-    <a href="{{ url_for('login') }}"><button type="button" class="special_button" id="verify_button">Student Sign In </button></a>
-    <a href="{{ url_for('faculty_login') }}"><button type="button" class="special_button" id="verify_button">Faculty Sign In </button></a>
+    <a href="/truecolors{{ url_for('login') }}"><button type="button" class="special_button" id="verify_button">Student Sign In </button></a>
+    <a href="/truecolors{{ url_for('faculty_login') }}"><button type="button" class="special_button" id="verify_button">Faculty Sign In </button></a>
 </div>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='master_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="/truecolors{{ url_for('static', filename='master_style.css') }}">
     <title>True Colors Assessment Data</title>
     <style>
         /* Inline CSS to define the scrollable container */
@@ -28,11 +28,11 @@
         <div class="scrollable-container">
             <div id="data_display"></div>
         </div>
-        <a href="{{ url_for('logout') }}"><button type="button" class="special_button" id="verify_button">Logout</button></a>
+        <a href="/truecolors{{ url_for('logout') }}"><button type="button" class="special_button" id="verify_button">Logout</button></a>
     </div>
 
    
 
-    <script src="static/master_app.js"></script>
+    <script src="/truecolors/static/master_app.js"></script>
 </body>
 </html>

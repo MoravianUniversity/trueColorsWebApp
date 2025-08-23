@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" type="text/css" href="/truecolors/static/style.css">
     <title>True Colors Personality Test</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -42,7 +42,7 @@
 
         <!-- "Logout" button-->
         <div>
-            <a href="{{ url_for('logout') }}"><button type="button", class="special_button" id="verify_button">Logout</button></a>
+            <a href="/truecolors{{ url_for('logout') }}"><button type="button", class="special_button" id="verify_button">Logout</button></a>
         </div>
     </div>
 
@@ -171,7 +171,7 @@
         <button class="special_button" id="info_button_gold">Learn about GOLD</button>
         <button class="special_button" id="back_button_other">Back to result page</button>
 
-    <script src="/static/app.js"></script>
+    <script src="/truecolors/static/app.js"></script>
     <script>
         function radioButtonLocalStorage() {
             // Retrieve saved selections from local storage

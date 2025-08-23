@@ -69,6 +69,7 @@ def master_index():
 def login():
     google = oauth.create_client('google') # Create/get the google client above
     redirect_uri = url_for('authorize', _external=True)
+    redirect_uri = redirect_uri.replace(request.url_root, request.url_root + "truecolors/")
     session.pop('is_faculty', None) # Remove the faculty flag if it exists since this is regular student login
     return oauth.google.authorize_redirect(redirect_uri)
 
@@ -86,12 +87,13 @@ def faculty_redirect():
     # If the user's email is not in the allowed list, abort with a 403 Forbidden error
     if session.get('email') not in allowed_faculty_emails:
         return abort(403)
-    return redirect('/master_index')
+    return redirect('/truecolors/master_index')
 
 @app.route('/faculty_login')
 def faculty_login():
     google = oauth.create_client('google') # Create/get the google client above
     redirect_uri = url_for('authorize', _external=True)
+    redirect_uri = redirect_uri.replace(request.url_root, request.url_root + "truecolors/")
     session['is_faculty'] = True  # Set a flag to identify faculty users
     return oauth.google.authorize_redirect(redirect_uri)
 
@@ -137,16 +139,16 @@ def authorize():
 
     # Redirect based on the user type (faculty or student)
     if session.get('is_faculty'):
-        return redirect('/faculty_redirect')
+        return redirect('/truecolors/faculty_redirect')
     else:
-        return redirect('/quiz')
+        return redirect('/truecolors/quiz')
 
 # Clear login session from the user
 @app.route('/logout') 
 def logout():
     for key in list(session.keys()): # Clear all keys from the session data
         session.pop(key)
-    return redirect('/')
+    return redirect('/truecolors/')
 
 # Default route to render index.html
 @app.route('/')
@@ -489,7 +491,7 @@ def student_data(email, name):
     '''
     try:
         # Fetch all data from the /fetch_user_info endpoint
-        response = requests.get(url_for('fetch_user_info', email=email, _external=True))
+        response = requests.get(url_for('fetch_user_info', email=email, _external=True).replace(request.url_root, request.url_root + "truecolors/"))
         
         all_data = response.json()
 

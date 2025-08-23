@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/fetch_session_data')
+    fetch('/truecolors/fetch_session_data')
         .then(response => response.json())
         .then(data => {
             console.log("Fetched data:", data); 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let row = document.createElement('tr');
                 if (user[2] != null) { // Only display students who have finished the test
                 row.innerHTML = `
-                    <td><a href="/student_data/${user[1]}/${user[0]}">${user[0]}</a></td>
+                    <td><a href="/truecolors/student_data/${user[1]}/${user[0]}">${user[0]}</a></td>
                     <td>${user[2]}</td>
                     <td>${user[3]}</td>
                 `;
